@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Halaman {% block judul %} {% endblock %} </title>
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/booststrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/adminlte.css')}}">
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='font/sansPro.css')}}">
+</head>
+<body>
+    <div class="conten-wrapper">
+        <section class="conten-header">
+            <h1>
+                <a href="/">
+                    <img src="{{ url_for('static', filename='img/Logo_Gram.png') }}"
+                         style="width: 40px;">
+                </a>
+                Data Mahasiswa
+                <small>Teknik Komputer</small>
+            </h1>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            {% block JudulKonten %} {% endblock %}
+                        </div>
+                        <div class="box-body">
+                            {% block konten %} {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>   
+        </section>
+    </div>
+<script src="{{url_for('static', filename='js/bootstrap.min,js')}}"></script>  
+<script src="{{url_for('static', filename='js/adminlte.min,js')}}"></script>  
+
+</body>
+</html>

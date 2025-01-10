@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% extends 'base.html' %} {% block judul %} Tambah Data Mahasiswa {% endblock %} {% block JudulKonten %}
+    <h3 class="box-title">Tambah Data Mahasiswa</h3>
+    {% endblock %} {% block konten %}
+    <form action="{{url_for('proses_tambah')}}" method="POST">
+      <div class="from-group">
+        <label>No Induk Mahasiswa</label>
+        <input type="text" name="nim" class="form-control" placeholder="nim" />
+      </div>
+      <div class="from-group">
+        <label>Nama Lengkap</label>
+        <input type="text" name="nama" class="form-control" placeholder="nama" />
+      </div>
+      <div class="from-group">
+        <label>Asal</label>
+        <input type="text" name="asal" class="form-control" placeholder="kota asal" />
+      </div>
+      <div class="box-footer">
+        <button type="rest" class="btn btn-default">cancel</button>
+        <button type="subit" class="btn btn-primary pull-right">submit</button>
+      </div>
+    </form>
+    {% endblock %}
+  </body>
+</html>

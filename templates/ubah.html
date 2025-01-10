@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block judul %} Ubah Data Mahasiswa {% endblock %}
+
+    {% block JudulKonten %}
+    <h3 class="box-title"> Ubah Data Mahasiswa </h3>
+    {% endblock %}
+
+    {% block konten %}
+    <form action="{{url_for('proses_ubah')}}" method="POST">
+        {% for row in hasil %}
+            <div class="from-group">
+                <label> No Induk Mahasiswa</label>
+                <input type="hidden" name="nim_ori" value="{{ row.0 }}">
+                <input type="text" name="nim" class="form-control" placeholder="nim" value="{{row.0}}">
+            </div>
+            <div class="from-group">
+                <label>Nama Lengkap</label>
+                <input type="text" name="nama" class="form-control" placeholder="nama" value="{{row.1}}">
+            </div>
+            <div class="from-group">
+                <label>Asal</label>
+                <input type="text" name="asal" class="form-control" placeholder="kota asal" value="{{row.2}}">
+            </div>
+    {% endfor %}
+
+    <div class="box-footer">
+        <button type="reset" class="btn btn-default"> cancel </button>
+        <button type="submit" class="btn btn-primary pull-right"> submit </button>
+    </div>
+ </form>
+ {% endblock %}  
+</body>
+</html>

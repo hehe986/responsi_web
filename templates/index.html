@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block judul %} Data Mahasiswa {% endblock %}
+
+    {% block JudulKonten %}
+        <a href="/tambah/" class="btn btn-info"> Tambah Data </a>
+    {% endblock %}
+
+    {% block konten %}
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>NIM</th>
+                    <th>Nama</th>
+                    <th>Asal</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in hasil %}
+                    <tr>
+                        <td>{{row.0}}</td>
+                        <td>{{row.1}}</td>
+                        <td>{{row.2}}</td>
+                        <td>
+                            <a href="/ubah/{{row.0}}" class="btn btn-warning">ubah </a>
+                            <a href="/hapus/{{row.0}}" class="btn btn-danger"
+                                onclick="return confirm('yakin akan menghapus {{row.0}} ?')"> Hapus</a>                        
+                        </td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+    {% endblock %}
+</body>
+</html>
